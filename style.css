@@ -1,0 +1,300 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 500ms;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: lightyellow;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2vh;
+    overflow: hidden;
+}
+
+.scene {
+    width: min(95vw, 50vh);
+    height: 75vh;
+    perspective: 200vh;
+    transition: 1500ms;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+.front {
+    background-color: whitesmoke;
+    border-radius: 1vh;
+}
+
+.back {
+    background-color: whitesmoke;
+    border-radius: 1vh;
+    transform: rotateY(180deg);
+}
+
+.border-shadow {
+    border: 1px solid rgba(100, 100, 100, 0.5);
+    border-radius: 1vh;
+    box-shadow: 4px 4px 4px rgba(100, 100, 100, 0.5);
+}
+
+.card-rotate {
+    transform: rotateY(180deg);
+    box-shadow: -4px 4px 4px rgba(100, 100, 100, 0.5);
+}
+
+.scene-enlarge {
+    width: 80vw;
+    min-width: min(95vw, 50vh);
+    max-width: 95vw;
+    height: 95vh;
+    transition: 1500ms;
+}
+
+#main-img {
+    width: 103%;
+    height: 33%;
+    object-fit: cover;
+}
+
+#header-back {
+    text-align: center;
+}
+
+#reverse-front,
+#reverse-back {
+    width: 17vh;
+    height: 6vh;
+    background-color: crimson;
+    color: white;
+    border: none;
+    border-radius: 0.75vh;
+    transition: 500ms;
+    font-size: 2vh;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#reverse-front:hover {
+    background-color: rgb(0, 0, 88);
+    transition: 500ms;
+}
+
+#reverse-back {
+    background-color: rgb(0, 0, 88);
+    margin: 2vh 3vh 3vh 3vh;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+#reverse-back:hover {
+    background-color: crimson;
+    transition: 500ms;
+}
+
+#bottom-div {
+    position: absolute;
+    bottom: 0;
+    height: 9vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h2,
+i {
+    color: crimson;
+}
+
+h1,
+h4 {
+    color: rgb(0, 0, 88);
+}
+
+h1,
+h2,
+h4,
+p,
+#bottom-div {
+    padding: 0 3vh 1vh 3vh;
+}
+
+h1,
+h4 {
+    padding-top: 2vh;
+}
+
+p {
+    text-align: justify;
+    color: rgb(1, 1, 51);
+}
+
+#hr {
+    border-top: 1px solid rgba(0, 0, 88, 0.5);
+    position: absolute;
+    bottom: 9vh;
+    width: 87%;
+    margin: 3vh;
+}
+
+#social {
+    width: 17vh;
+    height: 6vh;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+#social p {
+    padding: 0;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#container p:hover {
+    color: crimson;
+}
+
+#texts {
+    width: 50%;
+    overflow-y: scroll;
+    height: 72vh;
+}
+
+#pictures {
+    width: 50%;
+}
+
+.picture {
+    cursor: pointer;
+    width: min(50vh, 25vw);
+    object-fit: cover;
+    position: fixed;
+    border-radius: 1vh;
+    border: 1vh solid transparent;
+    transition: 0.5s;
+    padding: 0.5vw;
+    box-shadow: 4px 4px 4px rgba(100, 100, 100, 0.5);
+}
+
+.picture:hover {
+    transform: scale(1.1) !important;
+    transition: 0.5s !important;
+    border-radius: 3vh !important;
+    border: 0.5vh solid rgba(220, 20, 60, 0.521) !important;
+    z-index: 999 !important;
+}
+
+.picture-hover {
+    transform: scale(1.1) !important;
+    transition: 0.5s !important;
+    border-radius: 3vh !important;
+    border: 0.5vh solid rgba(220, 20, 60, 0.521) !important;
+    z-index: 999 !important;
+}
+
+#picture-1 {
+    z-index: 300;
+    left: 51%;
+    top: 17%;
+    transform: rotate(2deg);
+}
+
+#picture-2 {
+    z-index: 200;
+    left: 66%;
+    top: 34%;
+    transform: rotate(-2deg);
+}
+
+#picture-3 {
+    z-index: 100;
+    left: 58%;
+    top: 51%;
+    transform: rotate(-4deg);
+}
+
+@media screen and (max-width: 1000px) {
+    #pictures,
+    #picture-1,
+    #picture-2,
+    #picture-3 {
+        opacity: 0;
+        width: 0;
+    }
+    #texts {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .picture {
+        width: 40%;
+    }
+    #picture-2 {
+        left: 55%;
+    }
+    #picture-3 {
+        left: 55%;
+        transform: rotate(4deg);
+    }
+}
+
+#texts h4,
+#texts p {
+    font-size: max(2vh, 1.5vw);
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1400px) {
+    #texts h4,
+    #texts p {
+        font-size: 2.4vh;
+        margin-left: 3vh;
+    }
+}
+
+.onmouse-color-red {
+    color: crimson !important;
+}
+
+::-webkit-scrollbar {
+    width: 0.3vh;
+    height: 0;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: crimson;
+    border-radius: 4px;
+}
+
+ ::-webkit-scrollbar-track {
+    background: transparent;
+}
