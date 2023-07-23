@@ -6,18 +6,25 @@ var text3 = document.getElementById("text-3");
 var picture1 = document.getElementById("picture-1");
 var picture2 = document.getElementById("picture-2");
 var picture3 = document.getElementById("picture-3");
+var buttonFront = document.getElementById("reverse-front");
+var buttonBack = document.getElementById("reverse-back");
 
-document.getElementById("reverse-front").addEventListener("click", onReverseFront);
 document.getElementById("reverse-back").addEventListener("click", onReverseBack);
+document.getElementById("reverse-front").addEventListener("click", onReverseFront);
+
 
 function onReverseFront() {
     card.classList.add("card-rotate");
     scene.classList.add("scene-enlarge");
+    buttonFront.style.zIndex = "0";
+    buttonBack.style.zIndex = "1000";
 }
 
 function onReverseBack() {
     card.classList.remove("card-rotate");
     scene.classList.remove("scene-enlarge");
+    buttonFront.style.zIndex = "1000";
+    buttonBack.style.zIndex = "0";
 }
 
 picture1.addEventListener("mouseover", function() { onPictureMouse(1); });
